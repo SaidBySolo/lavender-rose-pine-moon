@@ -5,14 +5,15 @@
 }
 
 .primary {
-    background-color: white;
-    color: var(--color-dark-gray);
-    border: 2px solid var(--color-dark-gray);
+    background-color: #2a273f;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
     font-weight: bold;
     border-radius: var(--rounded-full);
     padding: 2px 12px;
     font-size: 12px;
 }
+
 .primary:hover,
 .primary:focus {
     background-color: var(--theme-bg);
@@ -20,16 +21,17 @@
 
 .primary[disabled] {
     cursor: not-allowed;
-    color: var(--color-light-gray);
-    border-color: var(--color-light-gray);
+    color: var(--color-subtle);
+    border-color: var(--color-subtle);
 }
+
 .primary[disabled]:hover,
 .primary[disabled]:focus {
-    background-color: white;
+    background-color: #2a273f;
 }
 
 .secondary {
-    color: var(--color-dark-gray);
+    color: var(--color-text);
     font-weight: bold;
     font-size: 11px;
     padding: 4px 14px;
@@ -38,6 +40,7 @@
     display: block;
     text-align: center;
 }
+
 .secondary::after,
 .secondary::after {
     content: '';
@@ -55,6 +58,7 @@
 .secondary:focus {
     font-weight: bold;
 }
+
 .secondary:hover::after,
 .secondary:focus::after {
     content: '';
@@ -69,9 +73,9 @@
 }
 
 .card {
-    background-color: white;
-    color: var(--color-dark-gray);
-    border: 2px solid var(--color-dark-gray);
+    background-color: #2a273f;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
     font-weight: bold;
     border-radius: var(--rounded);
     padding: 4px 12px;
@@ -86,13 +90,15 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--rounded-full);
-    color: var(--color-dark-gray);
+    color: var(--color-text);
 }
+
 .icon:hover,
 .icon:focus {
-    background-color: white;
-    border: 2px solid var(--color-dark-gray);
+    background-color: #2a273f;
+    border: 2px solid var(--color-text);
 }
+
 .icon:focus {
     outline: none;
 }

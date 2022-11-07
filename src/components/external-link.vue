@@ -1,29 +1,20 @@
 <template>
-    <a :href="url" target="_blank"
-        ><div class="row">
-            <div class="text" :class="{ underline: underline }"><slot /></div>
-            <div>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--color-soft-gray)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-external-link"
-                    style="height: 10px; width: 10px;"
-                >
-                    <path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                    ></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-            </div></div
-    ></a>
+    <a :href="url" target="_blank"></a>
+    <div class="row">
+        <div class="text" :class="{ underline: underline }">
+            <slot />
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="var(--color-muted)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-external-link" style="height: 10px; width: 10px;">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+        </div>
+    </div>
+
 </template>
 <script>
 export default {
@@ -40,7 +31,7 @@ export default {
 
 <style scoped>
 .text {
-    color: var(--var-dark-gray);
+    color: var(--var-text);
     font-size: 11px;
     padding: 4px;
     border-radius: var(--rounded-full);
@@ -48,9 +39,11 @@ export default {
     display: block;
     text-align: center;
 }
+
 .text.underline {
     font-weight: bold;
 }
+
 .text.underline::after {
     content: '';
     position: absolute;
@@ -61,6 +54,7 @@ export default {
     background-color: var(--theme-bg);
     transition: ease all 20ms;
 }
+
 .text.underline:hover::after,
 .text.underline:focus::after {
     content: '';

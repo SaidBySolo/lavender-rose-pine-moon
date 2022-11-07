@@ -1,29 +1,12 @@
 <template>
     <div class="grid">
         <div v-for="n in options" :key="n">
-            <input
-                :id="n"
-                v-model="selected"
-                :name="property"
-                type="radio"
-                :value="n"
-                :checked="storedValue == n"
-            />
+            <input :id="n" v-model="selected" :name="property" type="radio" :value="n" :checked="storedValue == n" />
             <div class="column" role="“radiogroup”">
-                <label
-                    :for="n"
-                    :class="n"
-                    tabindex="0"
-                    role="“radio”"
-                    aria-checked="selected == n ? 'true' : 'false'"
-                    @keyup.enter="selected = n"
-                    @keyup.space="selected = n"
-                >
-                    <div
-                        class="dot"
-                        :class="selected == n ? 'filled' : null"
-                        :alt="selected == n ? 'selected' : 'not-selected'"
-                    />
+                <label :for="n" :class="n" tabindex="0" role="“radio”" aria-checked="selected == n ? 'true' : 'false'"
+                    @keyup.enter="selected = n" @keyup.space="selected = n">
+                    <div class="dot" :class="selected == n ? 'filled' : null"
+                        :alt="selected == n ? 'selected' : 'not-selected'" />
                     <slot :name="n" />
                 </label>
                 <div :class="selected == n ? text.label : text.base">
@@ -80,7 +63,7 @@ label {
     position: relative;
     width: 96px;
     height: 124px;
-    border: 2px solid var(--color-dark-gray);
+    border: 2px solid var(--color-text);
     border-radius: var(--rounded);
     background-color: var(--theme-bg);
     display: flex;
@@ -88,21 +71,24 @@ label {
     justify-content: center;
     cursor: pointer;
 }
+
 .dot {
     position: absolute;
     top: 8px;
     left: 8px;
     height: 12px;
     width: 12px;
-    box-shadow: 0px 0px 0px 2px var(--color-dark-gray);
-    border: 2px solid white;
+    box-shadow: 0px 0px 0px 2px var(--color-text);
+    border: 2px solid #2a273f;
     border-radius: var(--rounded-full);
-    background-color: white;
+    background-color: #2a273f;
     cursor: pointer;
 }
+
 .filled {
-    background-color: var(--color-dark-gray);
+    background-color: var(--color-text);
 }
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(96px, max-content));
@@ -110,8 +96,9 @@ label {
     grid-gap: var(--space-small);
     padding: 6px 0px;
 }
-input:focus + label,
-input:active + label {
+
+input:focus+label,
+input:active+label {
     border: 2px solid var(--theme-bg);
 }
 </style>

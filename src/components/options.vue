@@ -1,10 +1,6 @@
 <template>
     <div class="options" @keyup.esc="isOptionsOpen = false">
-        <button
-            :class="[{ open: isOptionsOpen }, button.icon]"
-            class="options-button"
-            @click="toggleOptionsMenu"
-        >
+        <button :class="[{ open: isOptionsOpen }, button.icon]" class="options-button" @click="toggleOptionsMenu">
             <v-icon class="options-icon" style="width: 20px; height: 20px;" />
         </button>
         <div v-if="isOptionsOpen" class="overlay" @click="toggleOptionsMenu" />
@@ -21,63 +17,17 @@
 
                     <div class="row even" style="padding: 6px 0px;">
                         <!-- use aria label for buttons -->
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-lavender);"
-                            @click="toggleTheme('lavender')"
-                            @mouseenter="previewTheme('lavender')"
-                            @mouseleave="toggleTheme()"
-                        />
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-rose);"
-                            @click="toggleTheme('rose')"
-                            @mouseenter="previewTheme('rose')"
-                            @mouseleave="toggleTheme()"
-                        />
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-lemon);"
-                            @click="toggleTheme('lemon')"
-                            @mouseenter="previewTheme('lemon')"
-                            @mouseleave="toggleTheme()"
-                        />
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-sea);"
-                            @click="toggleTheme('sea')"
-                            @mouseenter="previewTheme('sea')"
-                            @mouseleave="toggleTheme()"
-                        />
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-leaf);"
-                            @click="toggleTheme('leaf')"
-                            @mouseenter="previewTheme('leaf')"
-                            @mouseleave="toggleTheme()"
-                        />
-                        <button
-                            class="colorToggle"
-                            style="background-color: var(--color-sand);"
-                            @click="toggleTheme('sand')"
-                            @mouseenter="previewTheme('sand')"
-                            @mouseleave="toggleTheme()"
-                        />
+                        <button class="colorToggle" style="background-color: var(--color-moon);"
+                            @click="toggleTheme('moon')" @mouseenter="previewTheme('moon')"
+                            @mouseleave="toggleTheme()" />
                     </div>
 
                     <div class="divider" />
 
                     <div :class="text.subtitle">time</div>
-                    <v-option-toggle
-                        option="useMilitaryTime"
-                        label="24 hour format"
-                        role="menuitem"
-                    />
+                    <v-option-toggle option="useMilitaryTime" label="24 hour format" role="menuitem" />
                     <div :class="text.label">layout:</div>
-                    <v-radio-group
-                        property="timeLayout"
-                        :options="['default', 'stacked']"
-                    >
+                    <v-radio-group property="timeLayout" :options="['default', 'stacked']">
                         <template #default>
                             <div class="time">
                                 <div>9:41</div>
@@ -105,18 +55,13 @@
 
                     <div :class="text.subtitle">weather</div>
                     <v-option-toggle option="useCelsius" label="celsius" />
-                    <v-option-toggle
-                        option="useDescriptiveWeather"
-                        label="precise conditions"
-                    />
+                    <v-option-toggle option="useDescriptiveWeather" label="precise conditions" />
 
                     <!-- <div class="space-small" /> -->
 
                     <div class="row">
                         <div :class="text.base">source:</div>
-                        <v-external-link url="https://openweathermap.org"
-                            >OpenWeather</v-external-link
-                        >
+                        <v-external-link url="https://openweathermap.org">OpenWeather</v-external-link>
                     </div>
 
                     <div class="divider" />
@@ -124,45 +69,31 @@
                     <div :class="text.subtitle">location</div>
 
                     <div v-if="storedWeather.hasData" class="row separated">
-                        <div
-                            v-if="fetchingPosition == false"
-                            :class="text.label"
-                        >
+                        <div v-if="fetchingPosition == false" :class="text.label">
                             {{ storedWeather.name }},
                             {{ storedWeather.sys.country }}
                         </div>
 
                         <div v-else :class="text.label">Fetching...</div>
                         <div>
-                            <button
-                                :class="button.primary"
-                                style="margin: 0 auto;"
-                                :disabled="refreshDisabled"
-                                @click="handleFetch"
-                            >
+                            <button :class="button.primary" style="margin: 0 auto;" :disabled="refreshDisabled"
+                                @click="handleFetch">
                                 {{
-                                    !refreshDisabled
-                                        ? 'Refresh'
-                                        : 'Please wait 15s'
+                                !refreshDisabled
+                                ? 'Refresh'
+                                : 'Please wait 15s'
                                 }}
                             </button>
                         </div>
                     </div>
                     <div v-else>
                         <div class="row separated">
-                            <div
-                                v-if="fetchingPosition == false"
-                                :class="text.label"
-                            >
+                            <div v-if="fetchingPosition == false" :class="text.label">
                                 location disabled.
                             </div>
                             <div v-else :class="text.label">fetching...</div>
                             <div>
-                                <button
-                                    :class="button.primary"
-                                    style="margin: 0 auto;"
-                                    @click="handleFetch"
-                                >
+                                <button :class="button.primary" style="margin: 0 auto;" @click="handleFetch">
                                     Enable
                                 </button>
                             </div>
@@ -178,30 +109,19 @@
                     <div class="divider" />
 
                     <div class="row even">
-                        <v-external-link
-                            url="https://github.com/fvrests/lavender/blob/main/privacy-policy.md"
-                            >Privacy Policy</v-external-link
-                        >
-                        <v-external-link
-                            url="https://github.com/fvrests/lavender/blob/main/terms-of-use.md"
-                            >Terms of Use</v-external-link
-                        >
+                        <v-external-link url="https://github.com/fvrests/lavender/blob/main/privacy-policy.md">Privacy
+                            Policy</v-external-link>
+                        <v-external-link url="https://github.com/fvrests/lavender/blob/main/terms-of-use.md">Terms of
+                            Use</v-external-link>
                     </div>
 
                     <div class="space-small" />
 
                     <div class="row even">
-                        <v-external-link
-                            url="https://twitter.com/fvrests"
-                            :underline="true"
-                            >@fvrests</v-external-link
-                        >
+                        <v-external-link url="https://twitter.com/fvrests" :underline="true">@fvrests</v-external-link>
 
-                        <v-external-link
-                            url="https://givebutter.com/fvrests"
-                            :underline="true"
-                            >donate ♥</v-external-link
-                        >
+                        <v-external-link url="https://givebutter.com/fvrests" :underline="true">donate ♥
+                        </v-external-link>
                     </div>
                 </div>
             </div>
@@ -289,6 +209,7 @@ export default {
     flex-direction: column;
     align-items: flex-end;
 }
+
 /* .options-menu {
     z-index: 10;
     width: 320px;
@@ -303,7 +224,7 @@ export default {
     padding: var(--space-medium);
     border: var(--border);
     border-radius: var(--rounded);
-    background-color: white;
+    background-color: #2a273f;
 } */
 .options-menu {
     padding-top: var(--page-padding);
@@ -316,12 +237,14 @@ export default {
     bottom: calc(var(--page-padding) + 36px + var(--space-small));
     z-index: 10;
 }
+
 .donation-modal {
     position: fixed;
     left: calc(50% - 150px);
     top: calc(50% - 307.5px);
     z-index: 11;
 }
+
 .close:first-child {
     display: flex;
     position: fixed;
@@ -332,6 +255,7 @@ export default {
     background-color: black;
     z-index: 13;
 }
+
 .close:last-child {
     display: flex;
     position: fixed;
@@ -342,13 +266,14 @@ export default {
     background-color: black;
     z-index: 13;
 }
+
 .options-menu--inner {
     margin-top: auto;
     padding: var(--space-medium);
     width: 100%;
     height: 100%;
     max-height: 640px;
-    background: white;
+    background: #2a273f;
     border: var(--border);
     border-radius: var(--rounded);
     overflow-y: scroll;
@@ -359,15 +284,18 @@ export default {
     bottom: var(--page-padding);
     right: var(--page-padding);
 }
+
 .optionsMenu-enter-active,
 .optionsMenu-leave-active {
     transition: ease-in-out all 100ms;
 }
+
 .optionsMenu-enter-from,
 .optionsMenu-leave-to {
     opacity: 0;
     transform: scale(0.95);
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -377,10 +305,12 @@ export default {
     background-color: transparent;
     z-index: 9;
 }
+
 .dark {
-    background-color: var(--color-dark-gray);
+    background-color: var(--color-text);
     opacity: 0.6;
 }
+
 .colorToggle {
     height: 24px;
     width: 24px;
@@ -388,11 +318,13 @@ export default {
     cursor: pointer;
     border: var(--border);
 }
+
 .time {
     font-size: 24px;
     line-height: 24px;
     font-weight: bold;
 }
+
 .outline {
     border: var(--border);
     padding: 4px;

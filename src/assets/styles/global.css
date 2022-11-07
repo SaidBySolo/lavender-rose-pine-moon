@@ -1,21 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 
 :root {
-    --color-lavender: #dad4e0;
-    --color-rose: #f5e0dc;
-    --color-lemon: #fce5c4;
-    --color-sea: #c6ced3;
-    --color-leaf: #ced9cd;
-    --color-sand: #e4dcd4;
+    --color-moon: #232136;
 
-    --color-white-semi: rgba(255, 255, 255, 0.8);
-    --color-white-demi: rgba(255, 255, 255, 0.4);
-    --color-eggplant: #393438;
-    --color-dark-gray: #3f3b3b;
-    --color-soft-gray: #616161;
-    --color-light-gray: hsl(0, 0%, 87%);
+    --color-text: #e0def4;
+    --color-muted: #6e6a86;
+    --color-subtle: #908caa;
 
-    --theme-bg: var(--color-lavender);
+    --theme-bg: var(--color-moon);
 
     --space-small: 16px;
     --space-medium: 32px;
@@ -25,31 +17,18 @@
 
     --rounded-full: 9999px;
     --rounded: 12px;
-    --border: 2px solid var(--color-dark-gray);
+    --border: 2px solid var(--color-text);
 
     --font-serif: 'Lora', serif;
 
     --text-large: 36px;
 }
 
-.rose:root {
-    --theme-bg: var(--color-rose);
+.moon:root {
+    --theme-bg: var(--color-moon);
 }
-.sea:root {
-    --theme-bg: var(--color-sea);
-}
-.leaf:root {
-    --theme-bg: var(--color-leaf);
-}
-.lemon:root {
-    --theme-bg: var(--color-lemon);
-}
-.lavender:root {
-    --theme-bg: var(--color-lavender);
-}
-.sand:root {
-    --theme-bg: var(--color-sand);
-}
+
+
 
 html,
 body {
@@ -63,38 +42,45 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--theme-bg);
-    color: var(--color-dark-gray);
+    color: var(--color-text);
     min-height: 100vh;
 }
 
 .space-small {
     height: var(--space-small);
 }
+
 .space-medium {
     height: var(--space-medium);
 }
+
 .divider {
     width: 240px;
     height: 1px;
-    background-color: var(--color-light-gray);
+    background-color: var(--color-subtle);
     border-radius: var(--rounded-full);
     margin: 12px auto;
 }
+
 .row {
     display: flex;
     align-items: center;
 }
+
 .column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .even {
     justify-content: space-evenly;
 }
+
 .separated {
     justify-content: space-between;
 }
+
 .centered {
     justify-content: center;
 }

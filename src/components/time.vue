@@ -65,29 +65,35 @@ export default {
     grid-area: middle;
     text-align: center;
 }
+
 .time {
     font-size: 96px;
     line-height: 96px;
     font-weight: bold;
 }
+
 .monospaced {
     display: flex;
 }
-.monospaced > span {
+
+.monospaced>span {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 1ch;
 }
+
 .outline {
-    border: 3px solid var(--color-dark-gray);
+    border: 3px solid var(--color-text);
     padding: var(--space-small);
 }
+
 .italic {
     text-transform: uppercase;
     font-size: 14px;
     font-style: italic;
 }
+
 .today {
     /* text-transform: none; */
     font-weight: bold;

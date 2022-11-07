@@ -4,19 +4,9 @@
             <div :class="text.label">{{ label }}</div>
             <div :class="text.sublabel">{{ sublabel }}</div>
         </div>
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="toggle"
-            :class="selected ? 'selected' : ''"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle"
+            :class="selected ? 'selected' : ''">
             <rect x="1" y="5" width="22" height="14" rx="7" ry="7" />
             <circle :cx="selected ? 16 : 8" cy="12" r="4" />
         </svg>
@@ -56,20 +46,25 @@ export default {
     width: 100%;
     margin: 0 auto;
 }
-svg.toggle > rect,
-svg.toggle > circle {
+
+svg.toggle>rect,
+svg.toggle>circle {
     transition: all 200ms ease-in-out;
 }
-svg.toggle.selected > circle {
-    fill: white;
+
+svg.toggle.selected>circle {
+    fill: #2a273f;
 }
-svg.toggle > circle {
+
+svg.toggle>circle {
     fill: var(--theme-bg);
 }
-svg.toggle > rect {
-    fill: white;
+
+svg.toggle>rect {
+    fill: #2a273f;
 }
-svg.toggle.selected > rect {
+
+svg.toggle.selected>rect {
     fill: var(--theme-bg);
 }
 </style>

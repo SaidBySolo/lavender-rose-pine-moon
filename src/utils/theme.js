@@ -2,7 +2,7 @@ import store from '../store'
 
 export function toggleTheme(newTheme) {
     if (!newTheme) {
-        newTheme = window.localStorage.getItem('theme-color') || 'lavender'
+        newTheme = window.localStorage.getItem('theme-color') || 'moon'
     }
     document.querySelector('html').className = newTheme
     window.localStorage.setItem('theme-color', newTheme)

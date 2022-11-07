@@ -10,7 +10,7 @@ const store = new Vuex.Store({
         timeLayout: 'default',
         isDaytime: true,
         useDescriptiveWeather: false,
-        themeColor: 'lavender',
+        themeColor: 'moon',
         position: {
             hasData: false,
             latitude: '',
@@ -126,7 +126,7 @@ const store = new Vuex.Store({
                         (err) => {
                             console.log(
                                 errorCodes.position[err.code] ||
-                                    '😱oh no! an unknown error has occurred.'
+                                '😱oh no! an unknown error has occurred.'
                             )
                             reject(err)
                         },
